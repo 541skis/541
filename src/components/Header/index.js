@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import { Box, Flex, Heading, Link } from 'rebass';
 import { Link as GatsbyLink } from 'gatsby';
@@ -21,7 +20,6 @@ const Header = ({ hero, ...props }) => {
         </Link>
         <Box>
           <NavLink to="/story/">Story</NavLink>
-          <NavLink to="/streams/">Streams</NavLink>
           <NavLink to="/cart/">Cart {!!itemCount && `(${itemCount})`}</NavLink>
         </Box>
       </Flex>
@@ -32,10 +30,6 @@ const Header = ({ hero, ...props }) => {
       )}
     </Content>
   );
-};
-
-Header.propTypes = {
-  hero: PropTypes.node,
 };
 
 Header.defaultProps = {

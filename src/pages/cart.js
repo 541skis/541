@@ -8,7 +8,7 @@ const CartPage = () => (
   <>
     <Seo noIndex title="Your Cart" />
     <Header hero="Your Cart" />
-    <Content>
+    <Content pb={4} pt={5}>
       <Cart />
     </Content>
   </>

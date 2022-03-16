@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import GenericTags from './GenericTags';
 import MetadataContainer from '../../containers/MetadataContainer';
@@ -110,18 +109,6 @@ const Seo = ({ product, ...overrides }) => (
     }}
   </MetadataContainer>
 );
-
-Seo.propTypes = {
-  product: PropTypes.shape({
-    available: PropTypes.bool,
-    description: PropTypes.string,
-    imagePath: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.string,
-    sku: PropTypes.string,
-  }),
-  title: PropTypes.string.isRequired,
-};
 
 Seo.defaultProps = {
   product: null,

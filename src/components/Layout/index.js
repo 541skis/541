@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import emotionReset from 'emotion-reset';
 import { Global, css } from '@emotion/core';
@@ -78,12 +77,15 @@ class Layout extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <AppContext.Provider
-          value={{
-            addItemToCart: this.addItemToCart,
-            cart,
-            removeItemFromCart: this.removeItemFromCart,
-            updateItemInCart: this.updateItemInCart,
-          }}
+          value={
+            // eslint-disable-next-line react/jsx-no-constructed-context-values
+            {
+              addItemToCart: this.addItemToCart,
+              cart,
+              removeItemFromCart: this.removeItemFromCart,
+              updateItemInCart: this.updateItemInCart,
+            }
+          }
         >
           <Global
             styles={css`
@@ -114,20 +116,5 @@ class Layout extends React.Component {
     );
   }
 }
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-  storeContext: PropTypes.shape({
-    client: PropTypes.shape({
-      checkout: PropTypes.shape({
-        addLineItems: PropTypes.func,
-        create: PropTypes.func,
-        fetch: PropTypes.func,
-        removeLineItems: PropTypes.func,
-        updateLineItems: PropTypes.func,
-      }),
-    }),
-  }).isRequired,
-};
 
 export default withStoreContext(Layout);

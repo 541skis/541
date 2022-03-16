@@ -1,7 +1,6 @@
-import Image from 'gatsby-image';
-import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import { Box, Button, Card, Flex, Text } from 'rebass';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Link, graphql } from 'gatsby';
 import AppContext from '../../context/AppContext';
 import Content from '../Content';
@@ -21,7 +20,7 @@ const ProductLayout = ({ data: { shopifyProduct: product } }) => {
         product={{
           available: variant.availableForSale,
           description: product.description,
-          imagePath: variant.image.localFile.childImageSharp.fluid.src,
+          imagePath: variant.image.gatsbyImageData,
           name: product.title,
           price: variant.price,
           sku: variant.sku,
@@ -78,12 +77,12 @@ const ProductLayout = ({ data: { shopifyProduct: product } }) => {
         </Flex>
         {variant.image ? (
           <Card variant="card.dark">
-            <Image fluid={variant.image.localFile.childImageSharp.fluid} />
+            <GatsbyImage alt={product.title} image={getImage(variant.image)} />
           </Card>
         ) : (
           product.images.map((image) => (
             <Card key={image.id} variant="card.dark">
-              <Image fluid={image.localFile.childImageSharp.fluid} />
+              <GatsbyImage alt={product.title} image={getImage(image)} />
             </Card>
           ))
         )}
@@ -92,64 +91,15 @@ const ProductLayout = ({ data: { shopifyProduct: product } }) => {
   );
 };
 
-ProductLayout.propTypes = {
-  data: PropTypes.shape({
-    shopifyProduct: PropTypes.shape({
-      descriptionHtml: PropTypes.string,
-      handle: PropTypes.string,
-      id: PropTypes.string,
-      images: PropTypes.arrayOf(
-        PropTypes.shape({
-          localFile: PropTypes.shape({ childImageSharp: PropTypes.shape({}) }),
-        })
-      ),
-      options: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.string,
-          name: PropTypes.string,
-          values: PropTypes.arrayOf(PropTypes.string),
-        })
-      ),
-      productType: PropTypes.string,
-      shopifyId: PropTypes.string,
-      title: PropTypes.string,
-      variants: PropTypes.arrayOf(
-        PropTypes.shape({
-          availableForSale: PropTypes.bool,
-          id: PropTypes.string,
-          image: PropTypes.shape({
-            localFile: PropTypes.shape({
-              childImageSharp: PropTypes.shape({}),
-            }),
-          }),
-          price: PropTypes.string,
-          selectedOptions: PropTypes.arrayOf(
-            PropTypes.shape({ name: PropTypes.string, value: PropTypes.string })
-          ),
-          shopifyId: PropTypes.string,
-          sku: PropTypes.string,
-          title: PropTypes.string,
-        })
-      ),
-    }),
-  }).isRequired,
-};
-
 export const query = graphql`
-  query($handle: String!) {
+  query ($handle: String!) {
     shopifyProduct(handle: { eq: $handle }) {
       description
       handle
       id
       images {
         id
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 1000) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
-            }
-          }
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
       options {
         id
@@ -164,13 +114,7 @@ export const query = graphql`
         id
         image {
           id
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1000) {
-                ...GatsbyImageSharpFluid_withWebp_noBase64
-              }
-            }
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
         price
         selectedOptions {

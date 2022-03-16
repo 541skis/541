@@ -1,10 +1,9 @@
 const { resolve } = require('path');
-
-const shopifyAccessToken = '6b21f56fb087d8843f03f0f240c470b8';
-const shopifyShopName = '541-skis';
+require('dotenv').config({ path: '.env' });
 
 module.exports = {
   plugins: [
+    'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
@@ -27,8 +26,8 @@ module.exports = {
       options: {
         stores: {
           store: {
-            domain: `${shopifyShopName}.myshopify.com`,
-            storefrontAccessToken: shopifyAccessToken,
+            domain: process.env.SHOPIFY_URL,
+            storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
           },
         },
       },
@@ -52,8 +51,8 @@ module.exports = {
     },
     {
       options: {
-        accessToken: shopifyAccessToken,
-        shopName: shopifyShopName,
+        password: process.env.SHOPIFY_PASSWORD,
+        storeUrl: process.env.SHOPIFY_URL,
       },
       resolve: 'gatsby-source-shopify',
     },
@@ -66,11 +65,9 @@ module.exports = {
     facebook: '541skis',
     instagram: '541skis',
     language: 'en',
-    linkedin: '541skis',
     local: 'en_US',
     logo: '/images/logo.png',
     siteName: '541 Skis',
-    twitter: '541skis',
     url: 'https://541.ski',
   },
 };

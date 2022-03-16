@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import { Button, Flex, Heading, Text } from 'rebass';
 import AppContext from '../../../context/AppContext';
@@ -29,20 +28,6 @@ const LineItem = ({ item }) => {
       </Flex>
     </Flex>
   );
-};
-
-LineItem.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.string,
-    quantity: PropTypes.number,
-    title: PropTypes.string,
-    variant: PropTypes.shape({
-      price: PropTypes.string,
-      selectedOptions: PropTypes.arrayOf(
-        PropTypes.shape({ value: PropTypes.string })
-      ),
-    }),
-  }).isRequired,
 };
 
 export default LineItem;

@@ -1,6 +1,6 @@
-import Image from 'gatsby-image';
 import React from 'react';
 import { Box, Card, Flex, Heading } from 'rebass';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
 const ProductGrid = () => (
@@ -17,13 +17,7 @@ const ProductGrid = () => (
                 createdAt
                 images {
                   id
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 1000) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                      }
-                    }
-                  }
+                  gatsbyImageData(layout: FULL_WIDTH)
                 }
                 variants {
                   price
@@ -39,7 +33,10 @@ const ProductGrid = () => (
           <Heading as="h3" p={4} textAlign="center">
             {product.title}
           </Heading>
-          <Image fluid={product.images[0].localFile.childImageSharp.fluid} />
+          <GatsbyImage
+            alt={product.title}
+            image={getImage(product.images[0])}
+          />
         </Card>
       </Box>
     ))}

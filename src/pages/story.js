@@ -8,8 +8,8 @@ const OurStoryPage = () => (
   <>
     <Seo title="Our Story" />
     <Header hero="Our Story" />
-    <Content mt={4}>
-      <Text as="p" sx={{ textAlign: 'left' }} variant="intro">
+    <Content maxWidth="41rem" pb={4} pt={5}>
+      <Text as="p" variant="paragraph">
         541 was started out of necessity and a love of skiing. Owners, Brad
         Duffy and Jesse Scroggins, were born into ski racing roots which
         attributes to their desire to charge the mountain full tilt. In search

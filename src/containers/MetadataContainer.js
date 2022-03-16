@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Location } from '@reach/router';
 import { graphql, StaticQuery } from 'gatsby';
@@ -33,9 +32,5 @@ const MetadataContainer = ({ children }) => (
     )}
   </Location>
 );
-
-MetadataContainer.propTypes = {
-  children: PropTypes.func.isRequired,
-};
 
 export default MetadataContainer;

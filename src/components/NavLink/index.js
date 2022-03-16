@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Box } from 'rebass';
 import { Link } from 'gatsby';
@@ -10,10 +9,5 @@ const NavLink = ({ children, to }) => (
     </Link>
   </Box>
 );
-
-NavLink.propTypes = {
-  children: PropTypes.node.isRequired,
-  to: PropTypes.string.isRequired,
-};
 
 export default NavLink;

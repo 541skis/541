@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -12,13 +11,5 @@ const GenericTags = ({ author, description, language, title, url }) => (
     <meta content={author} name="author" />
   </Helmet>
 );
-
-GenericTags.propTypes = {
-  author: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  language: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-};
 
 export default GenericTags;

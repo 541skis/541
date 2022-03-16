@@ -5,7 +5,6 @@ const styles = {
     background: '#f8f6f7',
     black: '#000',
     primary: '#a80038',
-    secondary: '#fd0054',
     text: '#2b2024',
     textSubtle: '#9b9094',
     white: '#fff',
@@ -17,7 +16,7 @@ const styles = {
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   fontWeights: { body: 400, bold: 700 },
-  lineHeights: { body: 1.8, heading: 1.25 },
+  lineHeights: { body: 1.6, heading: 1.25 },
   radii: { circle: 99999, default: 5 },
   shadows: { card: 'rgba(14, 14, 33, 0.05) 0px 22px 44px 0px' },
   sizes: { avatar: 48 },
@@ -28,7 +27,7 @@ const variants = {
   buttons: {
     primary: {
       '&:disabled': { cursor: 'default', opacity: 0.3 },
-      '&:hover': { bg: 'secondary' },
+      '&:hover': { bg: 'primary' },
       bg: 'primary',
       borderRadius: 'default',
       color: 'background',
@@ -40,7 +39,7 @@ const variants = {
       transition: 'background-color 0.2s',
     },
     simple: {
-      '&:hover': { color: 'secondary' },
+      '&:hover': { color: 'primary' },
       bg: 'inherit',
       color: 'inherit',
       cursor: 'pointer',
@@ -75,21 +74,21 @@ const variants = {
       },
     },
     link: {
-      '&:hover': { color: 'secondary' },
+      '&:hover': { color: 'primary' },
       color: 'primary',
       textDecoration: 'underline',
       transition: 'color 0.2s',
     },
     navLink: {
       '&>a': {
-        '&.active': { opacity: 0.3, textDecoration: 'underline' },
-        '&:hover': { textDecoration: 'underline' },
-        fontSize: 1,
+        '&.active': {
+          '&:hover': { color: 'inherit' },
+          opacity: 0.3,
+        },
+        '&:hover': { color: 'primary' },
         fontWeight: 'bold',
-        letterSpacing: '0.075em',
         ml: 4,
         py: 3,
-        textTransform: 'uppercase',
       },
       display: 'inline-block',
     },

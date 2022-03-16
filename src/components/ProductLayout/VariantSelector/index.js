@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Box } from 'rebass';
 import { Label, Select } from '@rebass/forms';
@@ -15,14 +14,5 @@ const VariantSelector = ({ onChange, option }) => (
     </Select>
   </Box>
 );
-
-VariantSelector.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  option: PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-    values: PropTypes.arrayOf(PropTypes.string),
-  }).isRequired,
-};
 
 export default VariantSelector;
