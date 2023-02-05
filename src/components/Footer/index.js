@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Flex, Link } from 'rebass';
-import { Facebook, Instagram } from 'react-feather';
+import { Facebook, Instagram, Mail } from 'react-feather';
 import Content from '../Content';
 
 const FooterItemLink = ({ icon, text, to }) => (
@@ -21,7 +21,7 @@ const FooterItemLink = ({ icon, text, to }) => (
 );
 
 const Footer = () => (
-  <Content my={5}>
+  <Content py={5}>
     <Flex
       alignItems="center"
       as="ul"
@@ -38,6 +38,7 @@ const Footer = () => (
         text="Facebook"
         to="https://www.facebook.com/541skis/"
       />
+      <FooterItemLink icon={<Mail />} text="Email" to="mailto:jesse@541.ski" />
     </Flex>
     <Box color="textSubtle" fontSize={1} mt={4} textAlign="center">
       &copy; 541 Sport LLC

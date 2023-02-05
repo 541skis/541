@@ -24,17 +24,6 @@ module.exports = {
     },
     {
       options: {
-        stores: {
-          store: {
-            domain: process.env.SHOPIFY_URL,
-            storefrontAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
-          },
-        },
-      },
-      resolve: 'gatsby-plugin-shopify-buy',
-    },
-    {
-      options: {
         background_color: '#fbf9fa',
         display: 'minimal-ui',
         icon: 'src/images/logo.png',
@@ -48,13 +37,6 @@ module.exports = {
     {
       options: { name: 'images', path: 'src/images' },
       resolve: 'gatsby-source-filesystem',
-    },
-    {
-      options: {
-        password: process.env.SHOPIFY_PASSWORD,
-        storeUrl: process.env.SHOPIFY_URL,
-      },
-      resolve: 'gatsby-source-shopify',
     },
   ],
   siteMetadata: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import GenericTags from './GenericTags';
-import MetadataContainer from '../../containers/MetadataContainer';
+import MetadataContainer from './MetadataContainer';
 import OpenGraphTags from './OpenGraphTags';
 import StructuredData from './StructuredData';
 import TwitterTags from './TwitterTags';

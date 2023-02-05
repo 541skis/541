@@ -1,5 +1,3 @@
-/* eslint-disable sort-keys */
-
 const styles = {
   colors: {
     background: '#f8f6f7',
@@ -49,7 +47,7 @@ const variants = {
   text: {
     heading: { fontWeight: 'bold', lineHeight: 'heading' },
     intro: {
-      fontSize: [3, 4],
+      fontSize: [2, 4],
       lineHeight: 'body',
       textAlign: 'center',
     },
@@ -95,4 +93,6 @@ const variants = {
   },
 };
 
-export default { ...styles, ...variants };
+const theme = { ...styles, ...variants };
+
+export default theme;
