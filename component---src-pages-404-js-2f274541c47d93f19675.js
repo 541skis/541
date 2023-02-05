@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_541_ski=self.webpackChunk_541_ski||[]).push([[883],{429:function(e,n,t){t.r(n);var u=t(7294),r=t(5462);n.default=function(){return u.createElement(u.Fragment,null,u.createElement(r.Z,{noIndex:!0}),"404")}}}]);
+//# sourceMappingURL=component---src-pages-404-js-2f274541c47d93f19675.js.map
